@@ -1,0 +1,11 @@
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/obj/Debug/netcoreapp2.1/Capstone2-TaskList.csprojAssemblyReference.cache
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/obj/Debug/netcoreapp2.1/Capstone2-TaskList.csproj.CoreCompileInputs.cache
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/obj/Debug/netcoreapp2.1/Capstone2-TaskList.AssemblyInfoInputs.cache
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/obj/Debug/netcoreapp2.1/Capstone2-TaskList.AssemblyInfo.cs
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/bin/Debug/netcoreapp2.1/Capstone2-TaskList.deps.json
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/bin/Debug/netcoreapp2.1/Capstone2-TaskList.runtimeconfig.json
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/bin/Debug/netcoreapp2.1/Capstone2-TaskList.runtimeconfig.dev.json
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/bin/Debug/netcoreapp2.1/Capstone2-TaskList.dll
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/bin/Debug/netcoreapp2.1/Capstone2-TaskList.pdb
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/obj/Debug/netcoreapp2.1/Capstone2-TaskList.dll
+/Users/Steve/Projects/Capstone2-TaskList/Capstone2-TaskList/obj/Debug/netcoreapp2.1/Capstone2-TaskList.pdb
