@@ -8,33 +8,16 @@ namespace Capstone2_TaskList
 
         public static List<Task> tasks = new List<Task>();
 
+
         static void Main(string[] args)
         {
 
             Console.WriteLine("Welcome to the Task Manager!");
 
-            while (true)
-            {
-                Menu();
+            ToDo();
 
-                ToDo();
-            }
-                //Console.Write("Enter a task: ");
-
-
-
-                //Console.Write("Another Task? ");
-                //if (Console.ReadLine() == "n")
-                //{
-                //    break;
-                //}
-
-
-            //}
-            //foreach (Task t in tasks)
-            //{
-            //    Console.WriteLine(t.TaskName);
-            //}
+            Console.WriteLine();
+            Console.WriteLine("Goodbye.");
 
 
         }
@@ -55,6 +38,8 @@ namespace Capstone2_TaskList
             bool run = true;
             while (run)
             {
+                //Console.Clear(); 
+                Menu();
 
                 Console.Write("What would you like to do? ");
                 string input = Console.ReadLine().ToLower();
@@ -71,6 +56,19 @@ namespace Capstone2_TaskList
                 {
                     DeleteTask();
                 }
+                else if (input == "4" || input == "mark" || input == "complete")
+                {
+                    CompleteTask();
+                }
+                else if (input == "5" || input == "quit")
+                {
+                    run = false;
+                }
+                else
+                {
+                    Console.WriteLine("Oops. I didn't undstand that. Try again.");
+                    Console.WriteLine();
+                }
 
             }
 
@@ -78,28 +76,141 @@ namespace Capstone2_TaskList
 
         public static void ListTasks()
         {
-            foreach (Task item in tasks)
+            if (tasks.Count == 0)
             {
-                Console.WriteLine($"{item.TaskName} -- Completed? {item.TaskComplete}");
+                Console.WriteLine();
+                Console.WriteLine(" You haven't added any tasks yet.");
+                Console.WriteLine();
+            }
+            else
+            {
+                foreach (Task item in tasks)
+                {
+                    Console.WriteLine($" - {item.TaskName} -- {(item.TaskCompleted ? "Done" : "To do")}");
+                }
             }
         }
 
         public static void AddTask()
         {
+            Console.WriteLine();
             Console.Write("What is your task? ");
             Task t = new Task(Console.ReadLine());
             //Console.WriteLine($"The task {t.TaskName} is complete? {t.TaskComplete}.");
             tasks.Add(t);
+            Console.WriteLine();
         }
 
         public static void DeleteTask()
         {
-            Console.WriteLine("Which task would you like to delete?");
+            int taskNumber = 0;
 
-            for (int i = 0; i < tasks.Count; i++)
+            if (tasks.Count == 0)
             {
-                Console.WriteLine($" {i + 1} {tasks[i].TaskName}");
+                Console.WriteLine("You have no tasks to delete.");
+                Console.WriteLine();
             }
+            else
+            {
+
+                for (int i = 0; i < tasks.Count; i++)
+                {
+                    Console.WriteLine($" {i + 1}) {tasks[i].TaskName}");
+                }
+                Console.WriteLine($" {tasks.Count + 1}) Exit");
+
+
+                bool run = true;
+                while (run)
+                {
+                    Console.Write("Which task would you like to delete? ");
+
+                    string input = Console.ReadLine();
+                    try
+                    {
+                        taskNumber = Convert.ToInt32(input);
+                        if (taskNumber < 1 || taskNumber > tasks.Count + 1)
+                        {
+                            throw new Exception();
+                        }
+                        else if (taskNumber == tasks.Count + 1)
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            run = false;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("That wasn't a valid task. Try again.");
+                    }
+                }
+            }
+
+
+            tasks.RemoveAt(taskNumber - 1);
+
+        }
+
+        public static void CompleteTask()
+        {
+            int taskNumber = 0;
+
+            if (tasks.Count == 0)
+            {
+                Console.WriteLine("You have not added any tasks yet.");
+                Console.WriteLine();
+            }
+            else
+            {
+            
+                for (int i = 0; i < tasks.Count; i++)
+                {
+                    Console.WriteLine($" {i + 1}) {tasks[i].TaskName} -- {(tasks[i].TaskCompleted ? "COMPLETED" : "To Do")}");
+                }
+                Console.WriteLine($" {tasks.Count + 1}) Exit");
+
+
+                bool run = true;
+                while (run)
+                {
+                    Console.Write("Which task would you like to mark as complete? ");
+
+                    string input = Console.ReadLine();
+                    try
+                    {
+                        taskNumber = Convert.ToInt32(input);
+                        if (taskNumber < 1 || taskNumber > tasks.Count + 1)
+                        {
+                            throw new Exception();
+                        }
+                        else if (taskNumber == tasks.Count + 1)
+                        {
+                            break;
+                        }
+                        else if (tasks[taskNumber - 1].TaskCompleted == true)
+                        {
+                            throw new Exception();
+                        }
+                        else
+                        {
+                            run = false;
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("That wasn't a valid task. Try again.");
+                    }
+
+                    tasks[taskNumber - 1].TaskCompleted = true;
+                }
+            }
+
+
         }
 
 
