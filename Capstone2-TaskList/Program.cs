@@ -66,7 +66,9 @@ namespace Capstone2_TaskList
                 }
                 else
                 {
-                    Console.WriteLine("Oops. I didn't undstand that. Try again.");
+                    Console.WriteLine("Oops. I didn't understand that. Try again.");
+                    Console.WriteLine();
+                    Console.WriteLine("- + - + - + - + - + - + - + - +");
                     Console.WriteLine();
                 }
 
@@ -79,15 +81,22 @@ namespace Capstone2_TaskList
             if (tasks.Count == 0)
             {
                 Console.WriteLine();
-                Console.WriteLine(" You haven't added any tasks yet.");
+                Console.WriteLine("You haven't added any tasks yet.");
+                Console.WriteLine();
+                Console.WriteLine("- + - + - + - + - + - + - + - +");
                 Console.WriteLine();
             }
             else
             {
+                Console.WriteLine();
+                Console.WriteLine("Here are your tasks:");
                 foreach (Task item in tasks)
                 {
-                    Console.WriteLine($" - {item.TaskName} -- {(item.TaskCompleted ? "Done" : "To do")}");
+                    Console.WriteLine($"  {item.TaskName} - {(item.TaskCompleted ? "Done " : "To do")}");
                 }
+                Console.WriteLine();
+                Console.WriteLine("- + - + - + - + - + - + - + - + -");
+                Console.WriteLine();
             }
         }
 
@@ -99,6 +108,8 @@ namespace Capstone2_TaskList
             //Console.WriteLine($"The task {t.TaskName} is complete? {t.TaskComplete}.");
             tasks.Add(t);
             Console.WriteLine();
+            Console.WriteLine("- + - + - + - + - + - + - + - +");
+            Console.WriteLine();
         }
 
         public static void DeleteTask()
@@ -109,15 +120,18 @@ namespace Capstone2_TaskList
             {
                 Console.WriteLine("You have no tasks to delete.");
                 Console.WriteLine();
+                Console.WriteLine("- + - + - + - + - + - + - + - + -");
+                Console.WriteLine();
+
             }
             else
             {
 
                 for (int i = 0; i < tasks.Count; i++)
                 {
-                    Console.WriteLine($" {i + 1}) {tasks[i].TaskName}");
+                    Console.WriteLine($"  {i + 1}) {tasks[i].TaskName} - {(tasks[i].TaskCompleted ? "Done " : "To do")}");
                 }
-                Console.WriteLine($" {tasks.Count + 1}) Exit");
+                Console.WriteLine($"  {tasks.Count + 1}) Exit");
 
 
                 bool run = true;
@@ -140,6 +154,11 @@ namespace Capstone2_TaskList
                         else
                         {
                             run = false;
+                            tasks.RemoveAt(taskNumber - 1);
+                            Console.WriteLine();
+                            Console.WriteLine("- + - + - + - + - + - + - + - + -");
+                            Console.WriteLine();
+
                         }
                     }
                     catch (Exception)
@@ -148,10 +167,10 @@ namespace Capstone2_TaskList
                         Console.WriteLine("That wasn't a valid task. Try again.");
                     }
                 }
+
             }
 
 
-            tasks.RemoveAt(taskNumber - 1);
 
         }
 
@@ -161,22 +180,26 @@ namespace Capstone2_TaskList
 
             if (tasks.Count == 0)
             {
-                Console.WriteLine("You have not added any tasks yet.");
+                Console.WriteLine();
+                Console.WriteLine("You haven't added any tasks yet.");
+                Console.WriteLine();
+                Console.WriteLine("- + - + - + - + - + - + - + - + -");
                 Console.WriteLine();
             }
             else
             {
-            
+                Console.WriteLine();
                 for (int i = 0; i < tasks.Count; i++)
                 {
-                    Console.WriteLine($" {i + 1}) {tasks[i].TaskName} -- {(tasks[i].TaskCompleted ? "COMPLETED" : "To Do")}");
+                    Console.WriteLine($"  {i + 1}) {tasks[i].TaskName} - {(tasks[i].TaskCompleted ? "COMPLETED" : "To Do")}");
                 }
-                Console.WriteLine($" {tasks.Count + 1}) Exit");
+                Console.WriteLine($"  {tasks.Count + 1}) Exit");
 
 
                 bool run = true;
                 while (run)
                 {
+                    Console.WriteLine();
                     Console.Write("Which task would you like to mark as complete? ");
 
                     string input = Console.ReadLine();
@@ -203,10 +226,14 @@ namespace Capstone2_TaskList
                     catch (Exception)
                     {
                         Console.WriteLine();
-                        Console.WriteLine("That wasn't a valid task. Try again.");
+                        Console.WriteLine("That not a valid task. Try again.");
+                        Console.WriteLine();
                     }
 
                     tasks[taskNumber - 1].TaskCompleted = true;
+                    Console.WriteLine();
+                    Console.WriteLine("- + - + - + - + - + - + - + - +");
+                    Console.WriteLine();
                 }
             }
 
