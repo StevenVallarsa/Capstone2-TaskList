@@ -5,10 +5,10 @@ namespace Capstone2_TaskList
 {
     class Program
     {
-
+        // create Task list object
         public static List<Task> tasks = new List<Task>();
 
-
+        // Main program
         static void Main(string[] args)
         {
 
@@ -18,9 +18,9 @@ namespace Capstone2_TaskList
 
             Console.WriteLine();
             Console.WriteLine("Goodbye.");
-
-
         }
+
+
 
         public static void Menu()
         {
@@ -30,15 +30,15 @@ namespace Capstone2_TaskList
             Console.WriteLine("  4) Mark task complete");
             Console.WriteLine("  5) Quit");
             Console.WriteLine();
-
         }
+
+
 
         public static void ToDo()
         {
             bool run = true;
             while (run)
             {
-                //Console.Clear(); 
                 Menu();
 
                 Console.Write("What would you like to do? ");
@@ -76,6 +76,8 @@ namespace Capstone2_TaskList
 
         }
 
+
+
         public static void ListTasks()
         {
             if (tasks.Count == 0)
@@ -98,7 +100,10 @@ namespace Capstone2_TaskList
                 Console.WriteLine("- + - + - + - + - + - + - + - + -");
                 Console.WriteLine();
             }
+        
         }
+
+
 
         public static void AddTask()
         {
@@ -112,12 +117,15 @@ namespace Capstone2_TaskList
             Console.WriteLine();
         }
 
+
+
         public static void DeleteTask()
         {
             int taskNumber = 0;
 
             if (tasks.Count == 0)
             {
+                Console.WriteLine();
                 Console.WriteLine("You have no tasks to delete.");
                 Console.WriteLine();
                 Console.WriteLine("- + - + - + - + - + - + - + - + -");
@@ -166,13 +174,14 @@ namespace Capstone2_TaskList
                         Console.WriteLine();
                         Console.WriteLine("That wasn't a valid task. Try again.");
                     }
+
                 }
 
             }
 
-
-
         }
+
+
 
         public static void CompleteTask()
         {
@@ -235,11 +244,11 @@ namespace Capstone2_TaskList
                     Console.WriteLine("- + - + - + - + - + - + - + - +");
                     Console.WriteLine();
                 }
+            
             }
-
-
+        
         }
-
-
+    
     }
+
 }
