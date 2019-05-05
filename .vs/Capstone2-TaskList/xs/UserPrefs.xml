@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{2BA6524B-C884-492E-ADA3-CF7EEFFC8D2C}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Capstone2-TaskList/Program.cs">
     <Files>
-      <File FileName="Capstone2-TaskList/Program.cs" Line="13" Column="13" />
-      <File FileName="Capstone2-TaskList/Task.cs" Line="15" Column="15" />
+      <File FileName="Capstone2-TaskList/Program.cs" Line="205" Column="77" />
+      <File FileName="Capstone2-TaskList/Task.cs" Line="18" Column="10" />
       <File FileName="Capstone2-TaskList/TaskApp.cs" Line="8" Column="1" />
     </Files>
     <Pads>

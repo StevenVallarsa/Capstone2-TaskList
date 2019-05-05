@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Capstone2_TaskList
 {
-    class Program
+    class Program1
     {
         // create Task list object
         public static List<Task> tasks = new List<Task>();
@@ -13,6 +13,7 @@ namespace Capstone2_TaskList
         {
 
             Console.WriteLine("Welcome to the Task Manager!");
+            Console.WriteLine();
 
             ToDo();
 
@@ -24,6 +25,8 @@ namespace Capstone2_TaskList
 
         public static void Menu()
         {
+            Console.WriteLine($"You currently have {tasks.Count} task{(tasks.Count == 1 ? "" : "s")} in your tasks list.");
+            Console.WriteLine();
             Console.WriteLine("  1) List tasks");
             Console.WriteLine("  2) Add task");
             Console.WriteLine("  3) Delete task");
@@ -66,6 +69,7 @@ namespace Capstone2_TaskList
                 }
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Oops. I didn't understand that. Try again.");
                     Console.WriteLine();
                     Console.WriteLine("- + - + - + - + - + - + - + - +");
@@ -80,9 +84,10 @@ namespace Capstone2_TaskList
 
         public static void ListTasks()
         {
+            Console.Clear();
+
             if (tasks.Count == 0)
             {
-                Console.WriteLine();
                 Console.WriteLine("You haven't added any tasks yet.");
                 Console.WriteLine();
                 Console.WriteLine("- + - + - + - + - + - + - + - +");
@@ -90,8 +95,9 @@ namespace Capstone2_TaskList
             }
             else
             {
+                Console.WriteLine("Here is your tasks list:");
                 Console.WriteLine();
-                Console.WriteLine("Here are your tasks:");
+
                 foreach (Task item in tasks)
                 {
                     Console.WriteLine($"  {item.TaskName} - {(item.TaskCompleted ? "Done " : "To do")}");
@@ -109,9 +115,12 @@ namespace Capstone2_TaskList
         {
             Console.WriteLine();
             Console.Write("What is your task? ");
+
             Task t = new Task(Console.ReadLine());
-            //Console.WriteLine($"The task {t.TaskName} is complete? {t.TaskComplete}.");
             tasks.Add(t);
+
+            Console.Clear();
+            Console.WriteLine("Task added.");
             Console.WriteLine();
             Console.WriteLine("- + - + - + - + - + - + - + - +");
             Console.WriteLine();
@@ -122,10 +131,10 @@ namespace Capstone2_TaskList
         public static void DeleteTask()
         {
             int taskNumber = 0;
+            Console.Clear();
 
             if (tasks.Count == 0)
             {
-                Console.WriteLine();
                 Console.WriteLine("You have no tasks to delete.");
                 Console.WriteLine();
                 Console.WriteLine("- + - + - + - + - + - + - + - + -");
@@ -134,18 +143,22 @@ namespace Capstone2_TaskList
             }
             else
             {
+                Console.WriteLine("Here is your tasks list:");
+                Console.WriteLine();
 
                 for (int i = 0; i < tasks.Count; i++)
                 {
                     Console.WriteLine($"  {i + 1}) {tasks[i].TaskName} - {(tasks[i].TaskCompleted ? "Done " : "To do")}");
                 }
-                Console.WriteLine($"  {tasks.Count + 1}) Exit");
+                Console.WriteLine($"  {tasks.Count + 1}) Return to main menu");
+                Console.WriteLine();
 
 
                 bool run = true;
                 while (run)
                 {
                     Console.Write("Which task would you like to delete? ");
+                    Console.WriteLine();
 
                     string input = Console.ReadLine();
                     try
@@ -157,6 +170,7 @@ namespace Capstone2_TaskList
                         }
                         else if (taskNumber == tasks.Count + 1)
                         {
+                            Console.Clear();
                             break;
                         }
                         else
@@ -186,10 +200,10 @@ namespace Capstone2_TaskList
         public static void CompleteTask()
         {
             int taskNumber = 0;
+            Console.Clear();
 
             if (tasks.Count == 0)
             {
-                Console.WriteLine();
                 Console.WriteLine("You haven't added any tasks yet.");
                 Console.WriteLine();
                 Console.WriteLine("- + - + - + - + - + - + - + - + -");
@@ -197,13 +211,14 @@ namespace Capstone2_TaskList
             }
             else
             {
+                Console.WriteLine("Here is your tasks list:");
                 Console.WriteLine();
+
                 for (int i = 0; i < tasks.Count; i++)
                 {
                     Console.WriteLine($"  {i + 1}) {tasks[i].TaskName} - {(tasks[i].TaskCompleted ? "COMPLETED" : "To Do")}");
                 }
-                Console.WriteLine($"  {tasks.Count + 1}) Exit");
-
+                Console.WriteLine($"  {tasks.Count + 1}) Return to main menu");
 
                 bool run = true;
                 while (run)
@@ -221,6 +236,7 @@ namespace Capstone2_TaskList
                         }
                         else if (taskNumber == tasks.Count + 1)
                         {
+                            Console.Clear();
                             break;
                         }
                         else if (tasks[taskNumber - 1].TaskCompleted == true)
@@ -239,10 +255,13 @@ namespace Capstone2_TaskList
                         Console.WriteLine();
                     }
 
+                    Console.Clear();
+                    Console.WriteLine("Task marked as completed.");
+                    Console.WriteLine();
+                    Console.WriteLine("- + - + - + - + - + - + - + - + -");
+                    Console.WriteLine();
+
                     tasks[taskNumber - 1].TaskCompleted = true;
-                    Console.WriteLine();
-                    Console.WriteLine("- + - + - + - + - + - + - + - +");
-                    Console.WriteLine();
                 }
             
             }
