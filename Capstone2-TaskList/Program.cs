@@ -131,7 +131,7 @@ namespace Capstone2_TaskList
         public static void DeleteTask()
         {
             int taskNumber = 0;
-            string holdDeletedTask = "";
+            string holdTask = "";
             Console.Clear();
 
             if (tasks.Count == 0)
@@ -175,7 +175,7 @@ namespace Capstone2_TaskList
                         else
                         {
                             run = false;
-                            holdDeletedTask = tasks[taskNumber - 1].TaskName;
+                            holdTask = tasks[taskNumber - 1].TaskName;
                             tasks.RemoveAt(taskNumber - 1);
                             Console.WriteLine();
                             Console.WriteLine("- + - + - + - + - + - + - + - + -");
@@ -194,7 +194,7 @@ namespace Capstone2_TaskList
                 if (taskNumber != tasks.Count + 1)
                 {
                     Console.Clear();
-                    Console.WriteLine($"\"{holdDeletedTask}\" has been deleted from your task list.");
+                    Console.WriteLine($"\"{holdTask}\" has been deleted from your task list.");
                     Console.WriteLine();
                     Console.WriteLine("- + - + - + - + - + - + - + - +");
                     Console.WriteLine();
@@ -209,7 +209,6 @@ namespace Capstone2_TaskList
         public static void CompleteTask()
         {
             int taskNumber = 0;
-            string holdDeletedTask = "";
             Console.Clear();
 
             if (tasks.Count == 0)
@@ -268,7 +267,7 @@ namespace Capstone2_TaskList
                 if (taskNumber != tasks.Count + 1)
                 {
                     Console.Clear();
-                    Console.WriteLine($"\"{holdDeletedTask}\" has been marked as completed.");
+                    Console.WriteLine($"\"{tasks[taskNumber - 1].TaskName}\" has been marked as completed.");
                     Console.WriteLine();
                     Console.WriteLine("- + - + - + - + - + - + - + - + -");
                     Console.WriteLine();
